@@ -4,27 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Han Zayar Soe | Flutter Developer Portfolio</title>
-    <!-- Tailwind CSS CDN and Config -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- Removed Tailwind CDN for Node build -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#00a7cc",
-                        "background-light": "#f5f8f8",
-                        "background-dark": "#0f1f23",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                },
-            },
-        }
-    </script>
+    <!-- Config moved to tailwind.config.js -->
   </head>
   <body>
     <div id="root"></div>
