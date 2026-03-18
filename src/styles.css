@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.dark .glass-card {
+  background: rgba(15, 31, 35, 0.6);
+  border: 1px solid rgba(0, 167, 204, 0.1);
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 167, 204, 0.1), 0 10px 10px -5px rgba(0, 167, 204, 0.04);
+  border-color: #00a7cc;
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00a7cc;
+}
+
+.icon-hover:hover {
+  color: #00a7cc;
+  filter: drop-shadow(0 0 8px rgba(0, 167, 204, 0.6));
+}
+
+html {
+  scroll-behavior: smooth;
+}
