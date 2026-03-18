@@ -1,0 +1,30 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="36" y1="28" x2="220" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F1F23" />
+      <stop offset="0.52" stop-color="#123B45" />
+      <stop offset="1" stop-color="#00A7CC" />
+    </linearGradient>
+    <linearGradient id="accent" x1="70" y1="54" x2="194" y2="202" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7CEBFF" />
+      <stop offset="1" stop-color="#DDFBFF" />
+    </linearGradient>
+    <filter id="shadow" x="10" y="10" width="236" height="236" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="14"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0156863 0 0 0 0 0.152941 0 0 0 0 0.184314 0 0 0 0.35 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <rect x="24" y="24" width="208" height="208" rx="52" fill="url(#bg)"/>
+    <path d="M77 71C77 64.3726 82.3726 59 89 59H91C97.6274 59 103 64.3726 103 71V116H153V71C153 64.3726 158.373 59 165 59H167C173.627 59 179 64.3726 179 71V185C179 191.627 173.627 197 167 197H165C158.373 197 153 191.627 153 185V142H103V185C103 191.627 97.6274 197 91 197H89C82.3726 197 77 191.627 77 185V71Z" fill="url(#accent)"/>
+    <path d="M151 57H182.113C191.594 57 197.129 67.6325 191.697 75.4034L131.98 160.814C126.408 168.784 132.109 179.776 141.834 179.776H180C186.627 179.776 192 185.148 192 191.776V193C192 199.627 186.627 205 180 205H147.857H117.363C107.802 205 102.279 194.197 107.886 186.453L167.603 103.988C173.332 96.0763 167.678 85.041 157.911 85.041H151C144.373 85.041 139 79.6684 139 73.041V69C139 62.3726 144.373 57 151 57Z" fill="white"/>
+    <rect x="40" y="40" width="176" height="176" rx="40" stroke="white" stroke-opacity="0.16" stroke-width="2"/>
+  </g>
+</svg>

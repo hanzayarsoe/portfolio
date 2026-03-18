@@ -1,4 +1,4 @@
-# Profolio
+# Han Zayar Soe Portfolio
 
 Animated React portfolio built with Framer Motion and Vite.
 

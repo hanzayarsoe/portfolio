@@ -3,6 +3,17 @@ import { motion } from "framer-motion";
 import { projectsData } from "../data/projects";
 
 export default function Works({ onSelectProject }) {
+  const handleCardKeyDown = (event, project) => {
+    if (event.target !== event.currentTarget) {
+      return;
+    }
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onSelectProject(project);
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -19,7 +30,7 @@ export default function Works({ onSelectProject }) {
   };
 
   return (
-    <section className="py-24 px-6 relative" id="works">
+    <section className="relative px-4 py-24 sm:px-6" id="works">
       <div className="absolute inset-0 bg-primary/5 dark:bg-primary/5 skew-y-3 -z-10 origin-top-left transform scale-110"></div>
       <div className="max-w-7xl mx-auto">
         <motion.div 
@@ -55,8 +66,12 @@ export default function Works({ onSelectProject }) {
               key={project.id} 
               className={`group relative glass-card rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-primary/50 hover:shadow-primary/20 flex flex-col h-full ring-1 ring-slate-900/5 dark:ring-white/5 bg-white dark:bg-slate-900`}
               onClick={() => onSelectProject(project)}
+              onKeyDown={(event) => handleCardKeyDown(event, project)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open details for ${project.title}`}
             >
-              <div className={`w-full aspect-video overflow-hidden ${project.color} p-4 xl:p-8 flex items-center justify-center relative`}>
+              <div className={`relative flex aspect-video w-full items-center justify-center overflow-hidden p-4 ${project.color} xl:p-8`}>
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                 <img
                   src={project.image}
@@ -67,8 +82,8 @@ export default function Works({ onSelectProject }) {
                   <span className="material-symbols-outlined text-primary">arrow_forward</span>
                 </div>
               </div>
-              <div className="p-8 flex flex-col grow">
-                <div className="flex items-center gap-3 mb-4">
+              <div className="flex grow flex-col p-6 sm:p-8">
+                <div className="mb-4 flex flex-wrap items-center gap-3">
                   <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full uppercase tracking-wider">
                     {project.year}
                   </span>
@@ -76,7 +91,7 @@ export default function Works({ onSelectProject }) {
                     {project.tech}
                   </span>
                 </div>
-                <h4 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
+                <h4 className="mb-4 text-2xl font-bold transition-colors group-hover:text-primary sm:text-3xl">
                   {project.title}
                 </h4>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3">
@@ -88,7 +103,7 @@ export default function Works({ onSelectProject }) {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center bg-primary text-white py-2 rounded-lg font-bold text-sm hover:shadow-lg hover:shadow-primary/30 transition-all min-w-30"
+                      className="min-w-[7.5rem] flex-1 rounded-lg bg-primary py-2 text-center text-sm font-bold text-white transition-all hover:shadow-lg hover:shadow-primary/30"
                       onClick={(e) => e.stopPropagation()}
                     >
                       Live Demo
@@ -99,7 +114,7 @@ export default function Works({ onSelectProject }) {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center border-2 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 py-2 rounded-lg font-bold text-sm hover:border-primary hover:text-primary transition-all min-w-30"
+                      className="min-w-[7.5rem] flex-1 rounded-lg border-2 border-slate-200 py-2 text-center text-sm font-bold text-slate-700 transition-all hover:border-primary hover:text-primary dark:border-slate-800 dark:text-slate-300"
                       onClick={(e) => e.stopPropagation()}
                     >
                       GitHub
@@ -110,7 +125,7 @@ export default function Works({ onSelectProject }) {
                       href={project.playStoreUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center bg-[#01875F] text-white py-2 rounded-lg font-bold text-sm hover:shadow-lg hover:shadow-[#01875F]/30 transition-all min-w-30"
+                      className="min-w-[7.5rem] flex-1 rounded-lg bg-[#01875F] py-2 text-center text-sm font-bold text-white transition-all hover:shadow-lg hover:shadow-[#01875F]/30"
                       onClick={(e) => e.stopPropagation()}
                     >
                       Play Store
@@ -121,7 +136,7 @@ export default function Works({ onSelectProject }) {
                       href={project.appStoreUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 text-center bg-slate-900 border-2 border-slate-900 text-white dark:bg-white dark:text-slate-900 py-2 rounded-lg font-bold text-sm hover:shadow-lg transition-all min-w-30"
+                      className="min-w-[7.5rem] flex-1 rounded-lg border-2 border-slate-900 bg-slate-900 py-2 text-center text-sm font-bold text-white transition-all hover:shadow-lg dark:bg-white dark:text-slate-900"
                       onClick={(e) => e.stopPropagation()}
                     >
                       App Store

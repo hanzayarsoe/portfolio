@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section
-      className="relative overflow-hidden px-6 py-20 lg:py-32 max-w-7xl mx-auto"
+      className="relative mx-auto max-w-7xl overflow-hidden px-4 py-16 sm:px-6 sm:py-20 lg:py-32"
       id="hero"
     >
       {/* Floating decorative particles */}
@@ -21,7 +21,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-8"
+          className="order-2 space-y-8 lg:order-1"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -39,7 +39,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.7 }}
-            className="text-5xl lg:text-7xl font-black leading-tight tracking-tight"
+            className="text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-7xl"
           >
             Hi, I am <span className="gradient-text">Han Zayar Soe</span>,
             Flutter Developer.
@@ -48,7 +48,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.7 }}
-            className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl"
+            className="max-w-2xl text-base leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg"
           >
             Passionate Flutter Developer with a B.C.Sc degree and a proven record of building high-quality apps for Android and iOS. As an award-winning university developer, I specialize in writing clean, scalable Dart code using modern state management (BLoC, Riverpod). From REST API integrations to offline storage and mobile security, I love crafting beautiful and secure digital experiences.
           </motion.p>
@@ -62,7 +62,7 @@ export default function Hero() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               href="#experience"
-              className="bg-primary text-white px-8 py-4 rounded-lg font-bold hover:shadow-lg hover:shadow-primary/30 transition-all flex items-center gap-2 btn-pulse"
+              className="btn-pulse flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-4 text-center font-bold text-white transition-all hover:shadow-lg hover:shadow-primary/30 sm:w-auto sm:px-8"
             >
               View My Work{" "}
               <span className="material-symbols-outlined">
@@ -74,7 +74,7 @@ export default function Hero() {
               whileTap={{ scale: 0.95 }}
               href="/cv.pdf" 
               download="Han_Zayar_Soe_CV.pdf"
-              className="border border-primary text-primary px-8 py-4 rounded-lg font-bold hover:bg-primary/5 transition-all text-center inline-block"
+              className="inline-block w-full rounded-lg border border-primary px-6 py-4 text-center font-bold text-primary transition-all hover:bg-primary/5 sm:w-auto sm:px-8"
             >
               Download CV
             </motion.a>
@@ -84,9 +84,9 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="relative flex justify-center lg:justify-end"
+          className="order-1 relative flex justify-center lg:order-2 lg:justify-end"
         >
-          <div className="relative w-full max-w-xs lg:max-w-sm aspect-square">
+          <div className="relative aspect-square w-full max-w-[15rem] sm:max-w-xs lg:max-w-sm">
             <motion.div
               animate={{
                 scale: [1, 1.05, 1],
@@ -99,7 +99,7 @@ export default function Hero() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.4 }}
               src="/profile.png"
-              alt="Profile"
+              alt="Portrait of Han Zayar Soe"
               className="relative z-10 w-full h-auto rounded-3xl object-cover bg-center shadow-2xl overflow-hidden border-8 border-white dark:border-slate-800"
             />
           </div>
