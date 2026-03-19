@@ -102,7 +102,7 @@ export default function ProjectDetails({
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-              className={`relative mb-10 w-full overflow-hidden rounded-[2rem] shadow-2xl aspect-video md:mb-16 md:aspect-21/9 md:rounded-4xl ${project.color}`}
+              className={`relative mx-auto mb-10 w-full max-w-[40rem] overflow-hidden rounded-[2rem] shadow-2xl aspect-square md:mb-16 md:rounded-4xl ${project.color}`}
             >
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent z-10 mix-blend-multiply"></div>
               <motion.img
@@ -111,7 +111,10 @@ export default function ProjectDetails({
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover relative z-0 opacity-90 transition-transform duration-1000 hover:scale-105 hover:opacity-100"
+                loading="eager"
+                decoding="async"
+                sizes="(min-width: 1024px) 40rem, 100vw"
+                className="relative z-0 h-full w-full object-cover opacity-90 transition-transform duration-1000 hover:scale-105 hover:opacity-100"
               />
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
