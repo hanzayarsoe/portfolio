@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function ProjectDetails({
@@ -7,11 +7,7 @@ export default function ProjectDetails({
   darkMode,
   setDarkMode,
 }) {
-  const dialogRef = useRef(null);
-
   useEffect(() => {
-    dialogRef.current?.focus();
-
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
         onBack();
@@ -39,64 +35,45 @@ export default function ProjectDetails({
   };
 
   return (
-    <>
-      {/* Backdrop overlay */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-60 bg-black/60 backdrop-blur-sm"
-        onClick={onBack}
-      />
-
-      {/* Modal panel */}
-      <motion.div
-        initial={{ opacity: 0, y: "100%" }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: "100%" }}
-        transition={{ type: "spring", damping: 30, stiffness: 300 }}
-        className="fixed inset-0 z-70 overflow-y-auto"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={`project-title-${project.id}`}
-        aria-describedby={`project-overview-${project.id}`}
-        tabIndex={-1}
-        ref={dialogRef}
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 24 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="min-h-screen bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100"
+    >
+      <motion.header
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
+        className="sticky top-0 z-50 flex w-full items-center justify-between glass-card border-none bg-white/90 px-4 py-4 dark:bg-background-dark/90 sm:px-6"
       >
-        <div className="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
-          {/* Modal header */}
-          <motion.header
-            initial={{ y: -40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="sticky top-0 z-80 flex w-full items-center justify-between glass-card border-none bg-white/90 px-4 py-4 dark:bg-background-dark/90 sm:px-6"
-          >
-            <motion.button
-              whileHover={{ x: -4 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onBack}
-              className="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
-            >
-              <span className="material-symbols-outlined">close</span>
-              Close
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 180 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.3 }}
-              className="p-2 rounded-full hover:bg-primary/10 text-primary"
-              onClick={() => setDarkMode(!darkMode)}
-              aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
-              aria-pressed={darkMode}
-            >
-              <span className="material-symbols-outlined">
-                {darkMode ? "light_mode" : "dark_mode"}
-              </span>
-            </motion.button>
-          </motion.header>
+        <motion.button
+          whileHover={{ x: -4 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onBack}
+          className="flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
+          aria-label="Go back to portfolio"
+        >
+          <span className="material-symbols-outlined">arrow_back</span>
+          Back
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1, rotate: 180 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.3 }}
+          className="p-2 rounded-full hover:bg-primary/10 text-primary"
+          onClick={() => setDarkMode(!darkMode)}
+          aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
+          aria-pressed={darkMode}
+        >
+          <span className="material-symbols-outlined">
+            {darkMode ? "light_mode" : "dark_mode"}
+          </span>
+        </motion.button>
+      </motion.header>
 
-          <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
+      <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
             {/* Banner Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -331,9 +308,7 @@ export default function ProjectDetails({
                 </motion.div>
               </div>
             </motion.div>
-          </main>
-        </div>
-      </motion.div>
-    </>
+      </main>
+    </motion.div>
   );
 }
