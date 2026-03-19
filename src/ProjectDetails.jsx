@@ -120,7 +120,7 @@ export default function ProjectDetails({
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
-                className="absolute bottom-4 left-4 right-4 z-20 flex flex-col justify-between gap-4 text-white sm:bottom-6 sm:left-6 sm:right-6 md:bottom-8 md:left-8 md:right-8 md:flex-row md:items-end md:gap-6"
+                className="absolute bottom-8 left-8 right-8 z-20 hidden flex-col justify-between gap-6 text-white md:flex md:flex-row md:items-end"
               >
                 <div className="space-y-4 max-w-3xl">
                   <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -152,6 +152,36 @@ export default function ProjectDetails({
                   </p>
                 </motion.div>
               </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+              className="mb-10 space-y-5 md:hidden"
+            >
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-primary px-4 py-1 text-sm font-bold uppercase tracking-wider text-white shadow-lg">
+                  {project.year}
+                </span>
+                <span className="rounded-full bg-slate-900 px-3 py-1 text-sm font-bold tracking-wide text-white dark:bg-slate-100 dark:text-slate-900">
+                  {project.tech}
+                </span>
+              </div>
+              <h1
+                className="text-3xl font-black tracking-tight sm:text-4xl"
+                id={`project-title-${project.id}`}
+              >
+                {project.title}
+              </h1>
+              <div className="rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/60">
+                <h3 className="mb-2 text-sm font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                  Role
+                </h3>
+                <p className="text-lg font-bold text-slate-900 dark:text-slate-100">
+                  {project.details.role}
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -271,7 +301,7 @@ export default function ProjectDetails({
 
                 <motion.div
                   variants={fadeUp}
-                  className="glass-card p-8 rounded-3xl"
+                  className="glass-card rounded-3xl p-6 sm:p-8"
                 >
                   <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
                     <span className="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-xl">
@@ -291,7 +321,7 @@ export default function ProjectDetails({
                           stiffness: 200,
                         }}
                         whileHover={{ scale: 1.08, y: -2 }}
-                        className="px-5 py-3 bg-white dark:bg-background-dark border border-slate-200 dark:border-slate-700 rounded-xl font-mono text-sm font-bold shadow-sm hover:shadow-md hover:border-primary hover:text-primary transition-all cursor-default flex items-center gap-2"
+                        className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-bold transition-all cursor-default hover:border-primary hover:text-primary hover:shadow-md dark:border-slate-700 dark:bg-background-dark font-mono"
                       >
                         <span className="size-2 rounded-full bg-primary/50"></span>
                         {pkg}
