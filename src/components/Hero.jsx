@@ -86,22 +86,53 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="order-1 relative flex justify-center lg:order-2 lg:justify-end"
         >
-          <div className="relative aspect-square w-full max-w-[15rem] sm:max-w-xs lg:max-w-sm">
+          <div className="relative w-full max-w-[15rem] sm:max-w-xs lg:max-w-sm">
             <motion.div
               animate={{
                 scale: [1, 1.05, 1],
-                opacity: [0.4, 0.6, 0.4],
+                opacity: [0.35, 0.55, 0.35],
               }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute inset-0 bg-primary/20 rounded-full blur-3xl"
+              className="absolute inset-0 rounded-[2rem] bg-primary/20 blur-3xl"
             ></motion.div>
-            <motion.img
-              whileHover={{ scale: 1.03 }}
+            <motion.div
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4 }}
-              src="/profile.png"
-              alt="Portrait of Han Zayar Soe"
-              className="relative z-10 w-full h-auto rounded-3xl object-cover bg-center shadow-2xl overflow-hidden border-8 border-white dark:border-slate-800"
-            />
+              className="relative z-10 overflow-hidden rounded-[2rem] border border-white/70 bg-white/90 p-6 shadow-2xl backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/90"
+            >
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.24em] text-primary">
+                <span className="size-2 rounded-full bg-primary"></span>
+                Core Focus
+              </div>
+              <div className="space-y-4">
+                <div className="rounded-2xl bg-slate-950 px-5 py-6 text-white dark:bg-slate-800">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">
+                    Specialty
+                  </p>
+                  <p className="mt-2 text-2xl font-black leading-tight">
+                    Flutter apps with clean architecture
+                  </p>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/80">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
+                      Platforms
+                    </p>
+                    <p className="mt-2 text-lg font-bold text-slate-900 dark:text-slate-100">
+                      Android, iOS, Web
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-700 dark:bg-slate-800/80">
+                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">
+                      Stack
+                    </p>
+                    <p className="mt-2 text-lg font-bold text-slate-900 dark:text-slate-100">
+                      BLoC, Riverpod, REST APIs
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

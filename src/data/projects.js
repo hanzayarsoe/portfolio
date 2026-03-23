@@ -53,7 +53,6 @@ export const projectsData = [
     description: "A comprehensive property and land management web application. It features GPS-based property mapping, user authentication, team/member group management, and real-time syncing of property listings from a backend API.",
     image: "/projects/new_myay_agent_banner_v2.webp",
     color: "bg-[#FF9800]",
-    demoUrl: "https://web-sage-rho.vercel.app/",
     githubUrl: "https://github.com/hanzayarsoe/myay_agent_web",
     details: { 
       role: "Lead Frontend Developer", 
